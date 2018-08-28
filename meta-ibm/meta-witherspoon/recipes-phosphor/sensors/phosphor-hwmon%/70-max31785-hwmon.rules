@@ -1,1 +1,0 @@
-SUBSYSTEM=="hwmon", ACTION=="add", ENV{OF_NAME}=="max31785", RUN="/bin/systemctl start max31785-hwmon-helper@%E{OF_FULLNAME}.service"
