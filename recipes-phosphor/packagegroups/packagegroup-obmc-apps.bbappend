@@ -15,3 +15,6 @@ RDEPENDS_${PN}-host-state-mgmt_append_df-openpower = " checkstop-monitor"
 # Add openpower debug collector as a requirement for state-mgmt
 # since it is used during checkstop handling.
 RDEPENDS_${PN}-host-state-mgmt_append_df-openpower = " openpower-debug-collector"
+
+# Add https service for certificate management,
+RDEPENDS_${PN}-obmc-cert-mgmt_append_df-openpower = " phosphor-certificate-manager-https"
