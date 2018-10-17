@@ -1,0 +1,11 @@
+Code-Review+1: Andrew Jeffery <andrew@aj.id.au>
+Code-Review+1: Matt Spinler <spinler@us.ibm.com>
+Ok-To-Test+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Ok-To-Test+1: Andrew Geissler <geissonator@yahoo.com>
+Code-Review+2: Brad Bishop <bradleyb@fuzziesquirrel.com>
+Verified+1: Brad Bishop <bradleyb@fuzziesquirrel.com>
+Submitted-by: Brad Bishop <bradleyb@fuzziesquirrel.com>
+Submitted-at: Wed, 17 Oct 2018 00:38:43 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/14046
+Project: openbmc/meta-openpower
+Branch: refs/heads/master
