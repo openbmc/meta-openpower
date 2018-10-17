@@ -1,6 +1,7 @@
 SUMMARY = "Parser for OpenPOWER-format FRU VPD"
 DESCRIPTION = "Parse OpenPOWER-format FRU VPD and update inventory"
 PR = "r1"
+PV = "1.0+git${SRCPV}"
 
 inherit autotools pkgconfig
 inherit openpower-fru-vpd
