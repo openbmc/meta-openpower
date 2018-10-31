@@ -19,9 +19,3 @@ SKIBOOT_SUBDIR ?= "external/${PN}"
 do_compile() {
     oe_runmake -C ${SKIBOOT_SUBDIR} all
 }
-
-# TODO: remove PREFIX=$prefix when updating to a version that has
-# http://patchwork.ozlabs.org/patch/923741/ is merged upstream
-do_install() {
-    oe_runmake -C ${SKIBOOT_SUBDIR} install DESTDIR=${D} prefix=/usr PREFIX=$prefix
-}
