@@ -1,0 +1,13 @@
+[Unit]
+Description=Init BMC MAC address for NIC %I and UUID
+Wants=mapper-wait@-xyz-openbmc_project-inventory.service
+After=mapper-wait@-xyz-openbmc_project-inventory.service
+Wants=mapper-wait@-xyz-openbmc_project-network-%I.service
+After=mapper-wait@-xyz-openbmc_project-network-%I.service
+
+[Service]
+ExecStart={sbindir}/bmc-first-init.sh %I
+Type=oneshot
+
+[Install]
+WantedBy={SYSTEMD_DEFAULT_TARGET}
