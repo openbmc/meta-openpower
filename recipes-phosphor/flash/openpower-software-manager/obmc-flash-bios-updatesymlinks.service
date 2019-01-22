@@ -9,7 +9,7 @@ ConditionPathExists=!/run/openbmc/chassis@0-on
 [Service]
 Type=oneshot
 RemainAfterExit=no
-ExecStart=/usr/bin/env obmc-flash-bios updatesymlinks
+ExecStart=/usr/bin/env flock /tmp/obmc-flash-bios.lock /usr/bin/env obmc-flash-bios updatesymlinks
 SyslogIdentifier=obmc-flash-bios
 
 [Install]

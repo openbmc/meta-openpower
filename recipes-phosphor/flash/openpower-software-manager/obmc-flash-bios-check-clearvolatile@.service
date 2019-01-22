@@ -7,7 +7,7 @@ ConditionPathExists=!/run/openbmc/host@%i-on
 [Service]
 Type=oneshot
 RemainAfterExit=no
-ExecStart=/usr/bin/env obmc-flash-bios clearvolatile
+ExecStart=/usr/bin/env flock /tmp/obmc-flash-bios.lock /usr/bin/env obmc-flash-bios clearvolatile
 SyslogIdentifier=obmc-flash-bios-check-clearvolatile
 
 [Install]

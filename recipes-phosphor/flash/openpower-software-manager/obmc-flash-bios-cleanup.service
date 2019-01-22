@@ -4,5 +4,5 @@ Description=Clean up UBI volumes unattached to a Host version
 [Service]
 Type=oneshot
 RemainAfterExit=no
-ExecStart=/usr/bin/env obmc-flash-bios ubicleanup
+ExecStart=/usr/bin/env flock /tmp/obmc-flash-bios.lock /usr/bin/env obmc-flash-bios ubicleanup
 SyslogIdentifier=obmc-flash-bios
