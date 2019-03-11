@@ -48,7 +48,7 @@ RDEPENDS_${PN}-flash = " \
         obmc-op-flasher \
         "
 RDEPENDS_${PN}-flash_df-openpower-ubi-fs = " \
-        openpower-software-manager \
+        openpower-software-manager-ubi \
         "
 
 SUMMARY_${PN}-system = "OpenPOWER System"
