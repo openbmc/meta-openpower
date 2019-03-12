@@ -1,9 +1,5 @@
 require openpower-software-manager.inc
 
-RDEPENDS_${PN} += " \
-        mtd-utils-ubifs \
-        "
-
 SRC_URI += "file://obmc-flash-bios"
 
 do_install_append() {

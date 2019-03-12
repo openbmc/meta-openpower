@@ -42,11 +42,21 @@ RDEPENDS_${PN}-fans = " \
         "
 
 SUMMARY_${PN}-flash = "OpenPOWER Flash"
+
+# TODO: remove below legacy services
 RDEPENDS_${PN}-flash = " \
         obmc-flash-bios \
         obmc-mgr-download \
         obmc-op-flasher \
         "
+RDEPENDS_${PN}-flash += " \
+        openpower-software-manager-static \
+        "
+
+RDEPENDS_${PN}-flash_remove_df-openpower-ubi-fs = " \
+        openpower-software-manager-static \
+        "
+
 RDEPENDS_${PN}-flash_df-openpower-ubi-fs = " \
         openpower-software-manager-ubi \
         "

@@ -8,11 +8,12 @@ PV = "1.0+git${SRCPV}"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://${S}/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e"
 
-inherit autotools pkgconfig
+inherit autotools pkgconfig systemd
 inherit obmc-phosphor-dbus-service
 inherit pythonnative
 
 PACKAGECONFIG[verify_pnor_signature] = "--enable-verify_pnor_signature,--disable-verify_pnor_signature"
+PACKAGECONFIG[ubifs_layout] = "--enable-ubifs_layout,--disable-ubifs_layout,,mtd-utils-ubifs"
 
 EXTRA_OECONF += " \
     PNOR_MSL="v2.0.10 v2.2" \
