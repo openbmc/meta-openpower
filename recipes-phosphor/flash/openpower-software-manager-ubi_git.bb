@@ -1,53 +1,15 @@
-SUMMARY = "OpenPower Software Management"
-DESCRIPTION = "OpenPower Software Manager provides a set of host software \
-management daemons. It is suitable for use on a wide variety of OpenPower \
-platforms."
-HOMEPAGE = "https://github.com/openbmc/openpower-pnor-code-mgmt"
-PR = "r1"
-PV = "1.0+git${SRCPV}"
-LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${S}/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e"
-
-inherit autotools pkgconfig
-inherit obmc-phosphor-dbus-service
-inherit pythonnative
-
-PACKAGECONFIG[verify_pnor_signature] = "--enable-verify_pnor_signature,--disable-verify_pnor_signature"
-
-EXTRA_OECONF += " \
-    PNOR_MSL="v2.0.10 v2.2" \
-    "
-
-DEPENDS += " \
-        autoconf-archive-native \
-        phosphor-dbus-interfaces \
-        phosphor-logging \
-        sdbusplus \
-        sdbusplus-native \
-        "
+require openpower-software-manager.inc
 
 RDEPENDS_${PN} += " \
         mtd-utils-ubifs \
-        phosphor-dbus-interfaces \
-        phosphor-logging \
-        sdbusplus \
-        virtual-obmc-image-manager \
         "
 
-S = "${WORKDIR}/git"
-
-SRC_URI += "git://github.com/openbmc/openpower-pnor-code-mgmt"
-
 SRC_URI += "file://obmc-flash-bios"
-
-SRCREV = "0d2f93212461c763ccf50df74485d10729cbdd48"
 
 do_install_append() {
         install -d ${D}${sbindir}
         install -m 0755 ${WORKDIR}/obmc-flash-bios ${D}${sbindir}/obmc-flash-bios
 }
-
-DBUS_SERVICE_${PN} += "org.open_power.Software.Host.Updater.service"
 
 SYSTEMD_SERVICE_${PN} += " \
         obmc-flash-bios-ubiattach.service \
