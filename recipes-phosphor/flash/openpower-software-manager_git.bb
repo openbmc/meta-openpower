@@ -40,8 +40,8 @@ SRC_URI += "file://obmc-flash-bios"
 SRCREV = "df7a6157b352ed251af7e3d7b7e4ef45f6f9e740"
 
 do_install_append() {
-        install -d ${D}${sbindir}
-        install -m 0755 ${WORKDIR}/obmc-flash-bios ${D}${sbindir}/obmc-flash-bios
+        install -d ${D}${bindir}
+        install -m 0755 ${WORKDIR}/obmc-flash-bios ${D}${bindir}/obmc-flash-bios
 }
 
 DBUS_SERVICE_${PN} += "org.open_power.Software.Host.Updater.service"
