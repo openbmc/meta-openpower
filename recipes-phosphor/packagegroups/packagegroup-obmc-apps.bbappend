@@ -13,3 +13,7 @@ RDEPENDS_${PN}-host-state-mgmt_append_df-openpower = " checkstop-monitor"
 # Add openpower debug collector as a requirement for state-mgmt
 # since it is used during checkstop handling.
 RDEPENDS_${PN}-host-state-mgmt_append_df-openpower = " openpower-debug-collector"
+
+# Add the libgpiod tools to the dev package for such tools as
+# gpiodetect, gpioinfo, gpioget, gpioset, and more
+RDEPENDS_${PN}-extrasdevtools_append_df-openpower = " libgpiod"
