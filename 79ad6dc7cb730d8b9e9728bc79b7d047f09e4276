@@ -1,0 +1,10 @@
+Ok-To-Test+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Code-Review+1: Patrick Venture <venture@google.com>
+Code-Review+1: Matt Spinler <spinler@us.ibm.com>
+Code-Review+2: Brad Bishop <bradleyb@fuzziesquirrel.com>
+Verified+1: Brad Bishop <bradleyb@fuzziesquirrel.com>
+Submitted-by: Brad Bishop <bradleyb@fuzziesquirrel.com>
+Submitted-at: Thu, 18 Apr 2019 14:52:20 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/meta-openpower/+/20639
+Project: openbmc/meta-openpower
+Branch: refs/heads/master
