@@ -1,0 +1,16 @@
+[Unit]
+Description=Start memory preserving IPL.
+Requires=obmc-mpipl@%i.target
+After=obmc-mpipl@%i.target
+Wants=obmc-enable-host-watchdog@%i.service
+Before=obmc-enable-host-watchdog@%i.service
+
+[Service]
+ExecStart=/usr/bin/env mboxctl --reset
+ExecStart=/usr/bin/env occ-active.sh disable
+Type=oneshot
+RemainAfterExit=no
+
+[Install]
+WantedBy=obmc-mpipl@%i.target
+
