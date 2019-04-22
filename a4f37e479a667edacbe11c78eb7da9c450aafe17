@@ -1,0 +1,10 @@
+Code-Review+1: Andrew Geissler <geissonator@yahoo.com>
+Code-Review+1: Gunnar Mills <gmills@us.ibm.com>
+Ok-To-Test+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Verified+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Code-Review+2: Brad Bishop <bradleyb@fuzziesquirrel.com>
+Submitted-by: Brad Bishop <bradleyb@fuzziesquirrel.com>
+Submitted-at: Mon, 22 Apr 2019 20:15:58 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/meta-openpower/+/20763
+Project: openbmc/meta-openpower
+Branch: refs/heads/master
