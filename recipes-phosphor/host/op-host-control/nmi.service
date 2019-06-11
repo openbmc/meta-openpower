@@ -1,0 +1,10 @@
+[Unit]
+Description=Enable Open Power NMI service
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/usr/bin/pdbg -a stop
+ExecStart=/usr/bin/pdbg -a sreset
+SyslogIdentifier=openpower-proc-nmi
+
