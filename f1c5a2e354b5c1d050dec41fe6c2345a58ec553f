@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43d25f6a_1f9753bb",
+        "filename": "recipes-phosphor/ipmi/hostboot-inventory-config-native.bb",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2019-06-11T12:07:35Z",
+      "side": 0,
+      "message": "Need to remove from here\n\nhttps://github.com/openbmc/openbmc/blob/194ff4f1f5d44b12e9cb06ddafa6adb20174a13c/meta-openpower/conf/machine/include/openpower.inc",
+      "revId": "f1c5a2e354b5c1d050dec41fe6c2345a58ec553f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
