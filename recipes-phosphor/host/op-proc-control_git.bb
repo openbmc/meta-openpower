@@ -19,9 +19,15 @@ DEPENDS += " \
         phosphor-dbus-interfaces \
         openpower-dbus-interfaces \
         "
+RDEPENDS_${PN} += "pdbg"
 
 TEMPLATE = "pcie-poweroff@.service"
 INSTANCE_FORMAT = "pcie-poweroff@{}.service"
 INSTANCES = "${@compose_list(d, 'INSTANCE_FORMAT', 'OBMC_CHASSIS_INSTANCES')}"
 SYSTEMD_PACKAGES = "${PN}"
 SYSTEMD_SERVICE_${PN} = "${TEMPLATE} ${INSTANCES}"
+
+SYSTEMD_SERVICE_${PN} +=  " \
+                         xyz.openbmc_project.Control.Host.NMI.service \
+                         nmi.service \
+                         "
