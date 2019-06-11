@@ -1,0 +1,12 @@
+[Unit]
+Description=Start the Open Power Host Control NMI service
+
+[Service]
+ExecStart=/usr/bin/env openpower-proc-nmi
+SyslogIdentifier=openpower-proc-nmi
+Restart=always
+Type=dbus
+BusName=xyz.openbmc_project.Control.Host.NMI
+
+[Install]
+WantedBy=multi-user.target
