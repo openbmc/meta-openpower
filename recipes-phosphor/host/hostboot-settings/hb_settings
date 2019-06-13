@@ -26,7 +26,10 @@ FLAGS_VERSION1=$((0x42))
 
 usage()
 {
-	echo "usage: hb_settings [[-u|--uart vuart|suart|none] | [-s|--show] | [-h]]"
+	echo "usage: hb_settings [[-u|--uart OPTION] | [-s|--show] | [-h]]"
+	echo ""
+	echo " -u|--uart vuart|suart|none"
+
 }
 
 show_regs()
@@ -62,7 +65,7 @@ show_regs()
 	esac
 }
 
-set_regs()
+set_uart_regs()
 {
 	case $uart in
 		suart)
@@ -91,11 +94,9 @@ while [ "$1" != "" ]; do
     case $1 in
 	    -u | --uart)	shift
 		    		uart=$1
-				set_regs
-				exit
-		    		;;
+				set_uart_regs
+				;;
 	    -s | --show )	show_regs
-		    		exit
 		    		;;
 	    -h | --help )	usage
 		    		exit
