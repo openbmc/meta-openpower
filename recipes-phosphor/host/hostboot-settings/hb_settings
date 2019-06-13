@@ -16,19 +16,40 @@
 #  SELECT_SUART    = 0x40,  // SIO Uart
 #  SELECT_VUART    = 0x80,  // SOL virtual uart
 #  RESERVED        = 0xc0,  // Reserved
-
+#
+# BOOT_FLAGS_REG            = 0x29
+#
+#   // masks to select flags from SIO register
+#    enum bootFlagMask_t
+#    {
+#        LOG_LEVEL_FLAGS     = 0x07,
+#        PNOR_DRIVER_FLAGS   = 0x08,
+#        BOOT_OPTIONS_FLAGS  = 0x30,
+#        BOOT_MODE_FLAGS     = 0xC0,
+#    };
+#
+#    // Masks to test boot mode flags from config register
+#    enum bootModeFlags
+#    {
+#        NORMAL             = 0x00,
+#        TERMINATE_ON_ERROR = 0x40,
+#        ISTEP_MODE         = 0x80,
+#    };
+#
 
 SYSFS_SIO=/sys/devices/platform/ahb/ahb:apb/1e789000.lpc/1e789080.lpc-host/1e789080.lpc-host:regs
 SYSFS_SIO28=$SYSFS_SIO/sio_28
 SYSFS_SIO2D=$SYSFS_SIO/sio_2d
+SYSFS_SIO29=$SYSFS_SIO/sio_29
 
 FLAGS_VERSION1=$((0x42))
 
 usage()
 {
-	echo "usage: hb_settings [[-u|--uart OPTION] | [-s|--show] | [-h]]"
+	echo "usage: hb_settings [[-u|--uart OPTION] | [-s|--show] | [[-b|--boot OPTION] [-h]]"
 	echo ""
 	echo " -u|--uart vuart|suart|none"
+	echo " -b|--boot normal|terminate|istep"
 
 }
 
@@ -36,6 +57,7 @@ show_regs()
 {
 	SIO28=$(cat $SYSFS_SIO28)
 	SIO2D=$(cat $SYSFS_SIO2D)
+	SIO29=$(cat $SYSFS_SIO29)
 
 	case $SIO28 in
 		$FLAGS_VERSION1)
@@ -43,6 +65,24 @@ show_regs()
 			;;
 		* )
 			echo "Unknown boot flags version"
+			;;
+	esac
+
+	case $(($SIO29 >> 6)) in
+		0)
+			echo "Boot mode: normal"
+			;;
+		1)
+			echo "Boot mode: terminate on error"
+			;;
+		2)
+			echo "Boot mode: istep"
+			;;
+		3)
+			echo "Reserved value"
+			;;
+		* )
+			echo "Invalid boot mode value"
 			;;
 	esac
 
@@ -63,6 +103,33 @@ show_regs()
 			echo "Invalid uart value"
 			;;
 	esac
+}
+
+set_boot_regs()
+{
+	case $boot in
+		normal)
+			echo "Normal boot"
+			VAL=0x00
+			;;
+		terminate)
+			echo "Terminate boot on error"
+			VAL=0x40
+			;;
+		istep)
+			echo "istep mode"
+			VAL=0x80
+			;;
+		* )
+			echo "Invalid boot value"
+			usage
+			exit 1
+	esac
+
+    echo $FLAGS_VERSION1 > $SYSFS_SIO28
+    CURRENT=$(( $(cat $SYSFS_SIO29) & ~0xC0 ))
+    VAL=$(( $CURRENT | $VAL ))
+    echo $VAL > $SYSFS_SIO29
 }
 
 set_uart_regs()
@@ -95,6 +162,10 @@ while [ "$1" != "" ]; do
 	    -u | --uart)	shift
 		    		uart=$1
 				set_uart_regs
+				;;
+	    -b | --boot)	shift
+				boot=$1
+				set_boot_regs
 				;;
 	    -s | --show )	show_regs
 		    		;;
