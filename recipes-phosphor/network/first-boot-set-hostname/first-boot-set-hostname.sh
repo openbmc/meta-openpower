@@ -31,7 +31,7 @@ sync_hostname() {
 
     if [[ -z "${BMC_ITEM_SERVICE}" ]]; then
         show_error "No BMC item found in the Inventory. Is VPD EEPROM empty?"
-        return
+        BMC_ITEM_SERV_EMPTY=1
     fi
 
     BMC_SN=$(busctl get-property ${BMC_ITEM_SERVICE} \
@@ -41,7 +41,14 @@ sync_hostname() {
     BMC_SN=${BMC_SN#*\"}
     BMC_SN=${BMC_SN%\"*}
 
-    hostnamectl set-hostname {MACHINE}-${BMC_SN}
+    if [[ -z "${BMC_SN}" ]]  || [ $BMC_ITEM_SERV_EMPTY == 1 ]; then
+        echo "Setting Hostname as 'hostname + machine-id' "
+        MACHINE_ID=`cat /etc/machine-id`
+        hostnamectl set-hostname {MACHINE}-${MACHINE_ID}
+    else
+        hostnamectl set-hostname {MACHINE}-${BMC_SN}
+    fi
+
 }
 
 [ "$(hostname)" = "{MACHINE}" ] && sync_hostname
