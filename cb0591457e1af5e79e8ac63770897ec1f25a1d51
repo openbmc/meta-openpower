@@ -1,0 +1,9 @@
+Ok-To-Test+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Code-Review+1: Alexander Filippov <a.filippov@yadro.com>
+Code-Review+2: Brad Bishop <radsquirrel@gmail.com>
+Verified+1: Brad Bishop <radsquirrel@gmail.com>
+Submitted-by: Brad Bishop <radsquirrel@gmail.com>
+Submitted-at: Wed, 26 Jun 2019 20:40:50 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/meta-openpower/+/23060
+Project: openbmc/meta-openpower
+Branch: refs/heads/master
