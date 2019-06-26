@@ -14,7 +14,7 @@ sync_hostname() {
     INVENTORY_PATH='/xyz/openbmc_project/inventory'
     BMC_ITEM_IFACE='xyz.openbmc_project.Inventory.Item.Bmc'
     INV_ASSET_IFACE='xyz.openbmc_project.Inventory.Decorator.Asset'
-
+    BMC_SN=''
     BMC_ITEM_PATH=$(busctl --no-pager --verbose call \
                             ${MAPPER_IFACE} \
                             ${MAPPER_PATH} \
@@ -30,21 +30,31 @@ sync_hostname() {
     BMC_ITEM_SERVICE=$(mapper get-service \
                                 ${BMC_ITEM_PATH} 2>/dev/null || true)
 
-    if [[ -z "${BMC_ITEM_SERVICE}" ]]; then
-        show_error "No BMC item found in the Inventory. Is VPD EEPROM empty?"
-        return
-    fi
-
-    BMC_SN=$(busctl get-property ${BMC_ITEM_SERVICE} \
+    if [[ -n "${BMC_ITEM_SERVICE}" ]]; then
+        BMC_SN=$(busctl get-property ${BMC_ITEM_SERVICE} \
                             ${BMC_ITEM_PATH} \
                             ${INV_ASSET_IFACE} SerialNumber)
-    # 's "002B0DH1000"'
-    BMC_SN=${BMC_SN#*\"}
-    BMC_SN=${BMC_SN%\"*}
+        # 's "002B0DH1000"'
+        BMC_SN=${BMC_SN#*\"}
+        BMC_SN=${BMC_SN%\"*}
+    else
+        show_error "No BMC item found in the Inventory. Is VPD EEPROM empty?"
+    fi
 
-    hostnamectl set-hostname {MACHINE}-${BMC_SN}
+    if [[ -z "${BMC_SN}" ]] ; then
+        show_error "BMC Serial Number empty! Setting Hostname as 'hostname + mac address' "
+        MACAddr=$(busctl get-property xyz.openbmc_project.Inventory.Manager \
+                         /xyz/openbmc_project/inventory/system/chassis/motherboard/boxelder/bmc/ethernet \
+                         xyz.openbmc_project.Inventory.Item.NetworkInterface MACAddress)
+        MACAddr=${MACAddr#*\"}
+        MACAddr=${MACAddr%\"*}
+        hostnamectl set-hostname $(hostname)-${MACAddr}
+    else
+        hostnamectl set-hostname $(hostname)-${BMC_SN}
+    fi
+
 }
 
-[ "$(hostname)" = "{MACHINE}" ] && sync_hostname
+sync_hostname
 
 systemctl disable first-boot-set-hostname.service
