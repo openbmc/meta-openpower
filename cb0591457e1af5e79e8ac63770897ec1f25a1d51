@@ -16,6 +16,24 @@
       "revId": "cb0591457e1af5e79e8ac63770897ec1f25a1d51",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38f6555c_58e80a9b",
+        "filename": "recipes-phosphor/bmcweb/bmcweb_%.bbappend",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000338
+      },
+      "writtenOn": "2019-07-09T06:43:09Z",
+      "side": 0,
+      "message": "The option was renamed. I\u0027ll change the commit message to reflect that.",
+      "parentUuid": "faff51c4_65e6c220",
+      "revId": "cb0591457e1af5e79e8ac63770897ec1f25a1d51",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
