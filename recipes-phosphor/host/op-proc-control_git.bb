@@ -19,7 +19,6 @@ DEPENDS += " \
         phosphor-dbus-interfaces \
         openpower-dbus-interfaces \
         "
-RDEPENDS_${PN} += "pdbg"
 
 # For libpdbg
 DEPENDS += "pdbg"
@@ -32,5 +31,4 @@ SYSTEMD_SERVICE_${PN} = "${TEMPLATE} ${INSTANCES}"
 
 SYSTEMD_SERVICE_${PN} +=  " \
                          xyz.openbmc_project.Control.Host.NMI.service \
-                         nmi.service \
                          "
