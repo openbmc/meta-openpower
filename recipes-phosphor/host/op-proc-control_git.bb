@@ -21,6 +21,9 @@ DEPENDS += " \
         "
 RDEPENDS_${PN} += "pdbg"
 
+# For libpdbg
+DEPENDS += "pdbg"
+
 TEMPLATE = "pcie-poweroff@.service"
 INSTANCE_FORMAT = "pcie-poweroff@{}.service"
 INSTANCES = "${@compose_list(d, 'INSTANCE_FORMAT', 'OBMC_CHASSIS_INSTANCES')}"
