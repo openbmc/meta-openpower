@@ -22,5 +22,7 @@ SRC_URI += "file://enable-istep0-procedures-only.patch"
 DEPENDS += " \
         pdbg pdata \
         "
+BBCLASSEXTEND = "native"
+
 inherit autotools \
         pythonnative
