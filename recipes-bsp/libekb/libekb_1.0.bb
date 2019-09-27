@@ -23,5 +23,7 @@ SRC_URI += "file://fapi-attributes-xml.patch"
 DEPENDS = " \
         pdbg pdata \
         "
+BBCLASSEXTEND = "native"
+
 inherit autotools \
         pythonnative
