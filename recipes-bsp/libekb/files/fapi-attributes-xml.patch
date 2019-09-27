@@ -1,0 +1,30 @@
+diff --git a/Makefile.am b/Makefile.am
+index 3d18a5c..2f0196c 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -21,25 +21,16 @@ ATTRIB_XML = \
+ 	$(EKB)/hwpf/fapi2/xml/attribute_info/system_attributes.xml \
+ 	$(EKB)/hwpf/fapi2/xml/attribute_info/unit_attributes.xml \
+ \
+-	$(EKB)/chips/p10/procedures/xml/attribute_info/memory_spd_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_bars_attributes.xml \
+-	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_chip_ec_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_clock_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_freq_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_hcode_image_build_attributes.xml \
+-	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_io_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_ipl_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_ipl_customize_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_memory_bars_attributes.xml \
+-	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_nest_attributes.xml \
+-	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_omi_init.xml \
+-	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_omi_setup_bars.xml \
+-	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_pervasive_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_qme_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_runn_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_sbe_load_bootloader_attributes.xml \
+-	$(EKB)/chips/p10/procedures/xml/attribute_info/pm_hwp_attributes.xml \
+-	$(EKB)/chips/p10/procedures/xml/attribute_info/pm_plat_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_sbe_attributes.xml
+ 
+ 
