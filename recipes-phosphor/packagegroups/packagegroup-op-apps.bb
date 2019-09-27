@@ -50,3 +50,7 @@ RDEPENDS_${PN}-system = " \
         hostboot-settings \
         pdbg \
         "
+
+RDEPENDS_${PN}-system_rainier += " \
+        pdata \
+        "
