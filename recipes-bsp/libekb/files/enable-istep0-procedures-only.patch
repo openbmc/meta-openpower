@@ -1,0 +1,46 @@
+diff --git a/Makefile.istep0 b/Makefile.istep0
+new file mode 100644
+index 0000000..47fc3a5
+--- /dev/null
++++ b/Makefile.istep0
+@@ -0,0 +1,2 @@
++# istep0
++include ekb/chips/p10/procedures/hwp/perv/p10_start_cbs.mk
+diff --git a/Makefile.am b/Makefile.am
+index 3d18a5c..b386933 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -21,20 +21,13 @@ ATTRIB_XML = \
+ 	$(EKB)/hwpf/fapi2/xml/attribute_info/system_attributes.xml \
+ 	$(EKB)/hwpf/fapi2/xml/attribute_info/unit_attributes.xml \
+ \
+-	$(EKB)/chips/p10/procedures/xml/attribute_info/memory_spd_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_bars_attributes.xml \
+-	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_chip_ec_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_clock_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_freq_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_hcode_image_build_attributes.xml \
+-	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_io_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_ipl_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_ipl_customize_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_memory_bars_attributes.xml \
+-	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_nest_attributes.xml \
+-	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_omi_init.xml \
+-	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_omi_setup_bars.xml \
+-	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_pervasive_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_qme_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_runn_attributes.xml \
+ 	$(EKB)/chips/p10/procedures/xml/attribute_info/p10_sbe_load_bootloader_attributes.xml \
+diff --git a/Makefile.generate b/Makefile.generate
+index c6ef9e8..d4c9f28 100644
+--- a/Makefile.generate
++++ b/Makefile.generate
+@@ -112,7 +112,7 @@ endef
+ 
+ all: definitions
+ 
+-include Makefile.istep
++include Makefile.istep0
+ 
+ SLIST += $(SRC_EXTRA)
+ 

@@ -53,4 +53,5 @@ RDEPENDS_${PN}-system = " \
 
 RDEPENDS_${PN}-system_rainier += " \
         pdata \
+        libekb \
         "
