@@ -1,0 +1,29 @@
+diff --git a/libpdbg/dtb.c b/libpdbg/dtb.c
+index 6c4beeda4fe6..e2de337a7f92 100644
+--- a/libpdbg/dtb.c
++++ b/libpdbg/dtb.c
+@@ -43,8 +43,8 @@
+ #include "p9-cronus.dt.h"
+
+ #define AMI_BMC "/proc/ractrends/Helper/FwInfo"
+-#define OPENFSI_BMC "/sys/bus/platform/devices/gpio-fsi/fsi0/"
+-#define FSI_CFAM_ID "/sys/devices/platform/gpio-fsi/fsi0/slave@00:00/cfam_id"
++#define OPENFSI_BMC "/sys/devices/platform/ahb/ahb:apb/1e79b000.fsi/fsi0"
++#define FSI_CFAM_ID "/sys/devices/platform/ahb/ahb:apb/1e79b000.fsi/fsi0/slave@00:00/cfam_id"
+ #define XSCOM_BASE_PATH "/sys/kernel/debug/powerpc/scom"
+
+ #define CHIP_ID_P8  0xea
+diff --git a/libpdbg/kernel.c b/libpdbg/kernel.c
+index 4cc0334d7eb3..825608f13ddc 100644
+--- a/libpdbg/kernel.c
++++ b/libpdbg/kernel.c
+@@ -29,8 +29,8 @@
+ #include "operations.h"
+ #include "hwunit.h"
+
+-#define FSI_SCAN_PATH "/sys/bus/platform/devices/gpio-fsi/fsi0/rescan"
+-#define FSI_CFAM_PATH "/sys/devices/platform/gpio-fsi/fsi0/slave@00:00/raw"
++#define FSI_SCAN_PATH "/sys/devices/platform/ahb/ahb:apb/1e79b000.fsi/fsi0/rescan"
++#define FSI_CFAM_PATH "/sys/devices/platform/ahb/ahb:apb/1e79b000.fsi/fsi0/slave@00:00/raw"
+
+ int fsi_fd;
