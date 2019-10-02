@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "116422b7_c66fa91c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2019-10-02T20:13:43Z",
+      "side": 1,
+      "message": "Having two changeids with structured tag (even though it\u0027s not in the trailier) is at best confusing.  Can you mention the id without the tag at the beginning of the line?\n\nOr better yet, give the commit hash and subject when its merged.",
+      "revId": "0155a01690e9f3a81a9e1fdc6c8677df8039a873",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
