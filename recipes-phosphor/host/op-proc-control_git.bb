@@ -32,3 +32,6 @@ SYSTEMD_SERVICE_${PN} = "${TEMPLATE} ${INSTANCES}"
 SYSTEMD_SERVICE_${PN} +=  " \
                          xyz.openbmc_project.Control.Host.NMI.service \
                          "
+EXTRA_OECONF = " \
+    MACHINE=${MACHINE} \
+    "
