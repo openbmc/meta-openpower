@@ -18,6 +18,7 @@ inherit ${@bb.utils.contains('DISTRO_FEATURES', 'openpower-ubi-fs', \
 
 PACKAGECONFIG[verify_pnor_signature] = "--enable-verify_pnor_signature,--disable-verify_pnor_signature"
 PACKAGECONFIG[ubifs_layout] = "--enable-ubifs_layout,--disable-ubifs_layout,,mtd-utils-ubifs"
+PACKAGECONFIG[single_image_layout] = "--enable-single_image_layout,--disable-single_image_layout"
 
 EXTRA_OECONF += " \
     PNOR_MSL="v2.0.10 v2.2" \
@@ -37,9 +38,9 @@ RDEPENDS_${PN} += " \
 
 S = "${WORKDIR}/git"
 
-SRC_URI += "git://github.com/openbmc/openpower-pnor-code-mgmt"
+SRC_URI += "git:///afs/rchland/projects/esw/CFM1/anthony/obmc-dev/openpower-pnor-code-mgmt;branch=single_image_update"
 
-SRCREV = "b41a57d52c6e5f6673b784a7a94a8dec0787770b"
+SRCREV = "a05718e6e7ad8e1982df7db3f60015dd449e5b0a"
 
 DBUS_SERVICE_${PN} += "org.open_power.Software.Host.Updater.service"
 
