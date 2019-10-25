@@ -15,9 +15,13 @@ inherit pythonnative
 inherit ${@bb.utils.contains('DISTRO_FEATURES', 'openpower-ubi-fs', \
                              'openpower-software-manager-ubi', \
                              'openpower-software-manager-static', d)}
+inherit ${@bb.utils.contains('DISTRO_FEATURES', 'openpower-virtual-pnor', \
+                             'openpower-software-manager-vpnor', \
+                             '', d)}
 
 PACKAGECONFIG[verify_pnor_signature] = "--enable-verify_pnor_signature,--disable-verify_pnor_signature"
 PACKAGECONFIG[ubifs_layout] = "--enable-ubifs_layout,--disable-ubifs_layout,,mtd-utils-ubifs"
+PACKAGECONFIG[virtual_pnor] = "--enable-virtual_pnor,--disable-virtual_pnor"
 
 EXTRA_OECONF += " \
     PNOR_MSL="v2.0.10 v2.2" \
