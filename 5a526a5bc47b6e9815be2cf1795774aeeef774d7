@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "218e2b64_cbce2992",
+        "filename": "classes/openpower-software-manager-vpnor.bbclass",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2019-10-25T20:54:52Z",
+      "side": 1,
+      "message": "\"obmc-vpnor-updatesymlinks\" per https://gerrit.openbmc-project.xyz/c/openbmc/openpower-pnor-code-mgmt/+/26041",
+      "range": {
+        "startLine": 4,
+        "startChar": 8,
+        "endLine": 4,
+        "endChar": 38
+      },
+      "revId": "5a526a5bc47b6e9815be2cf1795774aeeef774d7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9918938e_cad8f178",
+        "filename": "recipes-phosphor/flash/openpower-software-manager_git.bb",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2019-10-25T20:54:52Z",
+      "side": 1,
+      "message": "Remove. Add instead:\ninherit ${@bb.utils.contains(\u0027DISTRO_FEATURES\u0027, \u0027openpower-virtual-pnor\u0027, \\\n                             \u0027openpower-software-manager-vpnor\u0027, \\\n                             \u0027\u0027, d)}",
+      "revId": "5a526a5bc47b6e9815be2cf1795774aeeef774d7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
