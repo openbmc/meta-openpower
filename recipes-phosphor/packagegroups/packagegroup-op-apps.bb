@@ -49,4 +49,6 @@ SUMMARY_${PN}-system = "OpenPOWER System"
 RDEPENDS_${PN}-system = " \
         pdbg \
         croserver \
+        ecmd-pdbg \
         "
+
