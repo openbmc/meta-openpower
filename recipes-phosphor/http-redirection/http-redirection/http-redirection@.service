@@ -1,0 +1,12 @@
+[Unit]
+Description=HTTP redirection HTTPS interface %I
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/http-redirection.sh %i
+
+[Install]
+WantedBy=multi-user.target
