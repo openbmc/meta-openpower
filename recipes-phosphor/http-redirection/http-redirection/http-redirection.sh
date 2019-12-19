@@ -1,0 +1,51 @@
+#!/bin/sh -eu
+
+if [ $# -ne 1 ];
+then
+	echo "error, please input NIC name. eg: eth0"
+	exit -1
+fi
+
+bmcIp=""
+NIC=$1
+
+trap 'onCtrlC' INT
+onCtrlC() {
+    exit 0
+}
+
+getBMCIp() {
+	ipCount=`ip -o -4 addr list $NIC | awk 'END{print NR}'`
+	if [ $ipCount -eq 0 ]; then
+	    return
+	fi
+
+	if [ $ipCount -gt 1 ]; then
+	    bmcIp=`ip -o -4 addr list $NIC | awk '{print$4}' | cut -d/ -f1 | awk 'NR==2{print}'`
+	else
+	    bmcIp=`ip -o -4 addr list $NIC | awk '{print$4}' | cut -d/ -f1 | awk 'NR==1{print}'`
+	fi
+}
+
+getRespData() {
+	respData="HTTP/1.1 308 Permanent Redirect\nLocation: https://$bmcIp\nContent-Type: text/html; charset=UTF-8\nStrict-Transport-Security:max-age=31536000;includeSubDomains\n\n"
+}
+
+main() {
+
+	getBMCIp
+
+	if [ -z "$bmcIp" ]; then
+	    echo "BMC Ip is undefined, NIC: $NIC"
+	    exit -2
+	fi
+
+	getRespData
+
+	while true
+	do
+	    echo -e $respData | nc -l -p 80
+	done
+}
+
+main
