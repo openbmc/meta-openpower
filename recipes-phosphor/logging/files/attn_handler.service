@@ -1,0 +1,13 @@
+[Unit]
+Description=The Attention Handler service
+Wants=obmc-mapper.target
+After=obmc-mapper.target
+After=mapper-wait@-xyz-openbmc_project-logging.service
+
+[Service]
+ExecStart=/usr/bin/env attn_handler
+RemainAfterExit=yes
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
