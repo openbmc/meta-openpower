@@ -32,7 +32,7 @@ DEPENDS += " \
         phosphor-dbus-interfaces \
         openpower-dbus-interfaces-native \
         autoconf-archive-native \
-        obmc-targets \
+        phosphor-state-manager \
         systemd \
         "
 
@@ -70,14 +70,14 @@ S = "${WORKDIR}/git"
 # Remove packages not required for native build
 DEPENDS_remove_class-native = " \
         phosphor-logging \
-        obmc-targets \
+        phosphor-state-manager \
         systemd \
         virtual/${PN}-config-native \
         "
 # Remove packages not required for native SDK build
 DEPENDS_remove_class-nativesdk = " \
         phosphor-logging \
-        obmc-targets \
+        phosphor-state-manager \
         systemd \
         virtual/${PN}-config-native \
         "
