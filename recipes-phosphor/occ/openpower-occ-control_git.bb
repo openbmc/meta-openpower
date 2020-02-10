@@ -32,9 +32,10 @@ DEPENDS += " \
         phosphor-dbus-interfaces \
         openpower-dbus-interfaces-native \
         autoconf-archive-native \
-        obmc-targets \
         systemd \
         "
+
+RDEPENDS_${PN} += "phosphor-state-manager"1
 
 EXTRA_OECONF = " \
              YAML_PATH=${STAGING_DATADIR_NATIVE}/${PN} \
@@ -70,14 +71,12 @@ S = "${WORKDIR}/git"
 # Remove packages not required for native build
 DEPENDS_remove_class-native = " \
         phosphor-logging \
-        obmc-targets \
         systemd \
         virtual/${PN}-config-native \
         "
 # Remove packages not required for native SDK build
 DEPENDS_remove_class-nativesdk = " \
         phosphor-logging \
-        obmc-targets \
         systemd \
         virtual/${PN}-config-native \
         "
