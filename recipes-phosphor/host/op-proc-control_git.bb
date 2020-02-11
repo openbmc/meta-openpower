@@ -32,4 +32,5 @@ SYSTEMD_SERVICE_${PN} = "${TEMPLATE} ${INSTANCES}"
 
 SYSTEMD_SERVICE_${PN} +=  " \
                          xyz.openbmc_project.Control.Host.NMI.service \
+                         ${@bb.utils.contains('OBMC_MACHINE_FEATURES', 'phal', 'set-spi-mux.service', '', d)} \
                          "
