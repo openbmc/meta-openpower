@@ -10,8 +10,11 @@ S = "${WORKDIR}/git"
 inherit autotools obmc-phosphor-utils pkgconfig pythonnative
 inherit systemd
 
-SRC_URI += "git://github.com/openbmc/openpower-proc-control"
-SRCREV = "ce042fe87db46d58ab5b73d5ce3ccd126bdc60c7"
+#SRC_URI += "git://github.com/openbmc/openpower-proc-control"
+#SRCREV = "2e249abd6089123eac9873d53ba6d45c79fdba94"
+# TODO DELETE ME
+SRC_URI += "git://github.com/openbmc/openpower-proc-control;nobranch=1"
+SRCREV = "eda5dbeb890637ed3535a411de5b21ffcfbd9c4e"
 
 DEPENDS += " \
         autoconf-archive-native \
@@ -32,4 +35,6 @@ SYSTEMD_SERVICE_${PN} = "${TEMPLATE} ${INSTANCES}"
 
 SYSTEMD_SERVICE_${PN} +=  " \
                          xyz.openbmc_project.Control.Host.NMI.service \
+                         op-stop-instructions@.service \
+                         op-cfam-reset.service \
                          "
