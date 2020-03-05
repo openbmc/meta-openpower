@@ -33,6 +33,10 @@ DEPENDS += " \
         openpower-dbus-interfaces-native \
         autoconf-archive-native \
         systemd \
+        ${PYTHON_PN}-native \
+        ${PYTHON_PN}-pyyaml-native \
+        ${PYTHON_PN}-setuptools-native \
+        ${PYTHON_PN}-mako-native \
         "
 
 RDEPENDS_${PN} += "phosphor-state-manager-obmc-targets"
