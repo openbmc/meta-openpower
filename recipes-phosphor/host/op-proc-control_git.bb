@@ -33,4 +33,6 @@ SYSTEMD_SERVICE_${PN} +=  " \
                          xyz.openbmc_project.Control.Host.NMI.service \
                          op-stop-instructions@.service \
                          op-cfam-reset.service \
+                         op-continue-mpreboot@.service \
+                         op-enter-mpreboot@.service \
                          "
