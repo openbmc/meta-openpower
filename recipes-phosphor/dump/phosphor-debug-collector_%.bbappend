@@ -15,4 +15,10 @@ python link_openpower_plugins() {
 DEBUG_COLLECTOR_INSTALL_POSTFUNCS ?= ""
 DEBUG_COLLECTOR_INSTALL_POSTFUNCS_df-openpower ?= "install_openpower_plugins link_openpower_plugins"
 
+PACKAGECONFIG[host-dump-offload-pldm] = " \
+	--with-host-dump-offload-transport=pldm, \
+        pldm \
+        "
+
+
 do_install[postfuncs] += "${DEBUG_COLLECTOR_INSTALL_POSTFUNCS}"
