@@ -5,7 +5,7 @@ PV = "1.0+git${SRCPV}"
 
 inherit autotools pkgconfig
 inherit openpower-fru-vpd
-inherit pythonnative
+inherit python3native
 inherit obmc-phosphor-systemd
 
 require ${PN}.inc
