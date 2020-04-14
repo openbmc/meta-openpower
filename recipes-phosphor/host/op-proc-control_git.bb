@@ -10,8 +10,11 @@ S = "${WORKDIR}/git"
 inherit autotools obmc-phosphor-utils pkgconfig
 inherit systemd
 
-SRC_URI += "git://github.com/openbmc/openpower-proc-control"
-SRCREV = "aefde6902507add3891557f2b9de5d407cfadb1e"
+# TODO - Fix this once co-req merged
+#SRC_URI += "git://github.com/openbmc/openpower-proc-control"
+#SRCREV = "aefde6902507add3891557f2b9de5d407cfadb1e"
+SRC_URI += "git://github.com/openbmc/openpower-proc-control;nobranch=1"
+SRCREV = "bd469fd718d7eec9fdc20ed7d1c569ffc8abc109"
 
 DEPENDS += " \
         autoconf-archive-native \
