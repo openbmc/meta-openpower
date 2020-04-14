@@ -1,0 +1,9 @@
+Ok-To-Test+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Verified+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Code-Review+2: Joel Stanley <joel@jms.id.au>
+Code-Review+1: Jayanth Othayoth <ojayanth@in.ibm.com>
+Submitted-by: Joel Stanley <joel@jms.id.au>
+Submitted-at: Tue, 14 Apr 2020 10:41:13 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/meta-openpower/+/30769
+Project: openbmc/meta-openpower
+Branch: refs/heads/master
