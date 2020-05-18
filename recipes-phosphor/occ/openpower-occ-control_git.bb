@@ -31,6 +31,7 @@ DEPENDS += " \
         phosphor-dbus-interfaces \
         autoconf-archive-native \
         systemd \
+        pldm \
         ${PYTHON_PN}-native \
         ${PYTHON_PN}-pyyaml-native \
         ${PYTHON_PN}-setuptools-native \
@@ -75,6 +76,7 @@ DEPENDS_remove_class-native = " \
         phosphor-logging \
         systemd \
         sdbusplus \
+        pldm \
         virtual/${PN}-config-native \
         "
 RDEPENDS_${PN}_remove_class-native += "phosphor-state-manager-obmc-targets"
@@ -84,6 +86,7 @@ DEPENDS_remove_class-nativesdk = " \
         phosphor-logging \
         systemd \
         sdbusplus \
+        pldm \
         virtual/${PN}-config-native \
         "
 RDEPENDS_${PN}_remove_class-nativesdk += "phosphor-state-manager-obmc-targets"
