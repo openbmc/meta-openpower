@@ -103,4 +103,9 @@ PACKAGECONFIG_add_class-nativesdk = "install_error_yaml"
 # Disable install_error_yaml during target build
 PACKAGECONFIG_remove_class-target = "install_error_yaml"
 
+PACKAGECONFIG[occ-reset] = " \
+        --occ-reset-transport=pldm,, \
+        pldm \
+        "
+
 BBCLASSEXTEND += "native nativesdk"
