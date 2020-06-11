@@ -8,6 +8,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 SRC_URI = "git://github.com/openbmc/openpower-libhei"
 
 PV = "0.1+git${SRCPV}"
-SRCREV = "2d4981aaf6b410bdb5128390a195c22eecb7505b"
+SRCREV = "dc7baebdd80ee34a5ce9c7c0bda14366ed126246"
 
 S = "${WORKDIR}/git"
