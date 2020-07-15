@@ -1,0 +1,9 @@
+Ok-To-Test+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: Adriana Kobylak <anoo@linux.ibm.com>
+Code-Review+2: Andrew Geissler <geissonator@yahoo.com>
+Submitted-by: Andrew Geissler <geissonator@yahoo.com>
+Submitted-at: Wed, 15 Jul 2020 18:34:35 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/meta-openpower/+/34657
+Project: openbmc/meta-openpower
+Branch: refs/heads/master
