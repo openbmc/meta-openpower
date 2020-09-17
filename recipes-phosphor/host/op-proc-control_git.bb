@@ -36,4 +36,5 @@ SYSTEMD_SERVICE_${PN} +=  " \
                          ${@bb.utils.contains('OBMC_MACHINE_FEATURES', 'phal', 'set-spi-mux.service', '', d)} \
                          op-continue-mpreboot@.service \
                          op-enter-mpreboot@.service \
+                         ${@bb.utils.contains('OBMC_MACHINE_FEATURES', 'phal', 'phal-reinit-devtree.service', '', d)} \
                          "
