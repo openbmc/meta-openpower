@@ -12,6 +12,11 @@ python link_openpower_plugins() {
     install_dreport_user_script(script, d)
 }
 
+PACKAGECONFIG[open-power-dumps] = " \
+       -Dopen-power-dumps=enabled, \
+       -Dopen-power-dumps=disabled  \
+"
+
 DEBUG_COLLECTOR_INSTALL_POSTFUNCS ?= ""
 DEBUG_COLLECTOR_INSTALL_POSTFUNCS_df-openpower ?= "install_openpower_plugins link_openpower_plugins"
 
