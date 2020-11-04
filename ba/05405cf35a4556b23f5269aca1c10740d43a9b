@@ -1,0 +1,9 @@
+Ok-To-Test+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Ok-To-Test+1: Andrew Geissler <geissonator@yahoo.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+2: Andrew Geissler <geissonator@yahoo.com>
+Submitted-by: Andrew Geissler <geissonator@yahoo.com>
+Submitted-at: Wed, 04 Nov 2020 22:11:36 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/meta-openpower/+/37862
+Project: openbmc/meta-openpower
+Branch: refs/heads/master
