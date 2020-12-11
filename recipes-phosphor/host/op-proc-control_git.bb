@@ -37,4 +37,5 @@ SYSTEMD_SERVICE_${PN} +=  " \
                          op-continue-mpreboot@.service \
                          op-enter-mpreboot@.service \
                          ${@bb.utils.contains('OBMC_MACHINE_FEATURES', 'phal', 'phal-reinit-devtree.service', '', d)} \
+                         ${@bb.utils.contains('OBMC_MACHINE_FEATURES', 'phal', 'proc-pre-poweroff@.service', '', d)} \
                          "
