@@ -47,11 +47,7 @@ pkg_postinst_${PN}() {
 	TARGET="../op-continue-mpreboot@.service"
 	ln -s $TARGET $LINK
 
-	LINK="$D$systemd_system_unitdir/obmc-host-diagnostic-mode@0.target.requires/op-enter-mpreboot@0.service"
-	TARGET="../op-enter-mpreboot@.service"
-	ln -s $TARGET $LINK
-
-	# Only install phal reinit service if phal enabled
+	# Only install certan services if phal enabled
 	if [ "${@bb.utils.filter('OBMC_MACHINE_FEATURES', 'phal', d)}" = phal ]; then
 		mkdir -p $D$systemd_system_unitdir/obmc-host-start@0.target.requires
 		LINK="$D$systemd_system_unitdir/obmc-host-start@0.target.requires/phal-reinit-devtree.service"
@@ -60,6 +56,16 @@ pkg_postinst_${PN}() {
 
 		LINK="$D$systemd_system_unitdir/obmc-chassis-poweroff@0.target.requires/proc-pre-poweroff@0.service"
 		TARGET="../proc-pre-poweroff@.service"
+		ln -s $TARGET $LINK
+
+		# on phal systems, obmc-host-crash@.target is used for MPIPL
+		mkdir -p $D$systemd_system_unitdir/obmc-host-crash@0.target.requires
+		LINK="$D$systemd_system_unitdir/obmc-host-crash@0.target.requires/obmc-host-force-warm-reboot@0.target"
+		TARGET="../obmc-host-force-warm-reboot@.target"
+		ln -s $TARGET $LINK
+
+		LINK="$D$systemd_system_unitdir/obmc-host-crash@0.target.requires/op-enter-mpreboot@0.service"
+		TARGET="../op-enter-mpreboot@.service"
 		ln -s $TARGET $LINK
 	fi
 }
